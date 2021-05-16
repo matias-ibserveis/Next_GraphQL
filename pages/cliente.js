@@ -19,17 +19,19 @@ const axios = require('axios');
 // netlify.com/blog/2020/12/21/send-graphql-queries-with-the-fetch-api-without-using-apollo-urql-or-other-graphql-clients/
 const data = JSON.stringify({
   query: `
-    getUsers {
-      id
-      login
-      avatar_url
-    }`,
+      query usuarios {
+        getUsers {
+                  id
+                  login
+                  avatar_url
+                }
+      }`,
   variables:{}
 })
 
 const config = {
   method: 'post',
-  url: 'http://localhost:3000/api/graphql',
+  url: 'http://localhost:3000/api/ejemplo1/graphql',
   headers: { 
     'Content-Type': 'application/json'
   },
