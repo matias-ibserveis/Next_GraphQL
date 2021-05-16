@@ -1,4 +1,4 @@
-import  {  ApolloServer  }  from  "apollo-server-micro";
+/* import  {  ApolloServer  }  from  "apollo-server-micro";
 import  {  typeDefs  }  from  "./schemas";
 import  {  resolvers  }  from  "./resolvers";
 
@@ -11,71 +11,62 @@ export  const  config  =  {
 };
 
 export  default  apolloServer.createHandler({ path:  "/api/ejemplo1/graphql"  });
+*/
 
 
 
-/*
+// https://www.apollographql.com/blog/getting-started-with-apollo-client-in-next-js/
 
 import { ApolloServer, gql } from 'apollo-server-micro';
 
-// This data will be returned by our test endpoint
-const products = [
+const paises = [
   {
-    id: 1,
-    name: 'Cookie',
-    price: 300,
+    "code": "AD",
+    "name": "Andorra"
   },
   {
-    id: 2,
-    name: 'Brownie',
-    price: 350,
+    "code": "AE",
+    "name": "United Arab Emirates"
   },
-];
+  {
+    "code": "AF",
+    "name": "Afghanistan"
+  },
+  {
+    "code": "AG",
+    "name": "Antigua and Barbuda"
+  }
+]
 
 // Construct a schema using GraphQL schema language
 const typeDefs = gql`
-  type Product {
-    id: Int
+  type Country {
+    code: String
     name: String
-    price: Int
   }
 
   type Query {
-    products: [Product]
+    countries: [Country]
   }
-`;
+`
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    products: () => {
-      return products;
+    countries: () => {
+      return paises;
     },
   },
-};
+}
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
 export default server.createHandler({
-  path: '/api/graphql',
-});
+  path: '/api/ejemplo2/graphql',
+})
 
 export const config = {
   api: {
     bodyParser: false,
   },
-};
-
-*/
-
-/*  PETICION
-
-query {
-  products{
-    id
-    name
-    price
-  }
 }
 
-*/
