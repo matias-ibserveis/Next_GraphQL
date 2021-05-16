@@ -14,6 +14,7 @@ export const resolvers = {
         throw error;
       }
     },
+
     getUser: async (_, args) => {
       try {
         const user = await axios.get(
@@ -26,7 +27,9 @@ export const resolvers = {
         };
       } catch (error) {
         throw error;
-      }
+      } 
     }
+
+    
   }
 };

@@ -1,6 +1,6 @@
 // Varias funciones con next: https://nextjs.org/docs/api-routes/api-middlewares
 // Axios como cliente: https://www.netlify.com/blog/2020/12/21/send-graphql-queries-with-the-fetch-api-without-using-apollo-urql-or-other-graphql-clients/
-// Tutorial original (cliente APollo): https://www.apollographql.com/blog/getting-started-with-apollo-client-in-next-js/
+// Cliente APollo: https://www.apollographql.com/blog/getting-started-with-apollo-client-in-next-js/
 
 // Este código es un cliente graphQL y un servidor JSON
 
