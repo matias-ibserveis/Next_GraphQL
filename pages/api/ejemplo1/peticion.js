@@ -42,6 +42,6 @@ async function ejecuta_peticion() {
 
 export default async function programa(req, res) {
   const resultado = await ejecuta_peticion()
-  console.log("resultado", resultado.data)
+  console.log("resultado", JSON.stringify(resultado.data))
   res.json(resultado.data)
 }
