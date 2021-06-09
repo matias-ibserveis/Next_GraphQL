@@ -14,7 +14,7 @@ export  default  apolloServer.createHandler({ path:  "/api/ejemplo1/graphql"  })
 
 
 
-/*
+/*    // https://apuyou.io/blog/serverless-graphql-apollo-server-nextjs
 
 import { ApolloServer, gql } from 'apollo-server-micro';
 
