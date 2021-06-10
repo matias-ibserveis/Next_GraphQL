@@ -5,7 +5,7 @@ import { gql } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/api/ejemplo_02/graphql",
+  uri: "http://localhost:3000/api/ej2_args/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -15,17 +15,13 @@ async function ejecuta_peticion() {
     const { data } = await client.query({
       query: gql`
         query {
-                aprobados(nota:4) {
+                aprobados(numero:4) {
                   nombre
                 }
               }`,
     });
     return(data)
   }
-
-
-// "query":"{ mayoromenor(num1: 4, num2: 5) }
-
   catch(error){
     console.log("el error es:", error)
     return ("error en conexión")

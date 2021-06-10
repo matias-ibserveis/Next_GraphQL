@@ -1,5 +1,7 @@
 // https://apuyou.io/blog/serverless-graphql-apollo-server-nextjs
 
+// Arguments + variables: https://www.apollographql.com/docs/react/data/queries/
+
 import { ApolloServer, gql } from 'apollo-server-micro';
 
 // This data will be returned by our test endpoint
@@ -35,7 +37,7 @@ const typeDefs = gql`
 
   type Query {
     mayores: [Alumno],
-    aprobados(nota:Int):[Alumno]
+    aprobados(numero:Int):[Alumno]
   }
 `;
 
@@ -48,10 +50,11 @@ const resolvers = {
       })
         return filtraMayores
       },
+    // ojo, parents: https://www.apollographql.com/docs/apollo-server/data/resolvers/
     aprobados: (parent, args) => {
       console.log("valor en server",args)
       const filtraAprobados = alumnos.filter((alumno) => {
-        return (alumno.nota>args.nota ? alumno : false)
+        return (alumno.nota>args.numero ? alumno : false)
       })
         return filtraAprobados
     }
@@ -68,7 +71,7 @@ export const config = {
 };
 
 export default server.createHandler({
-  path: '/api/ejemplo_02/graphql',
+  path: '/api/ej2_args/graphql',
 });
 
 

@@ -49,7 +49,7 @@ export const config = {
 };
 
 export default server.createHandler({
-  path: '/api/ejemplo0/graphql',
+  path: '/api/ej0_inicio/graphql',
 });
 
 

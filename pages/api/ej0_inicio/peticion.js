@@ -23,7 +23,7 @@ async function ejecuta_peticion() {
 
   const config = {
     method: 'post',
-    url: 'http://localhost:3000/api/ejemplo0/graphql',
+    url: 'http://localhost:3000/api/ej0_inicio/graphql',
     headers: { 
       'Content-Type': 'application/json'
     },

@@ -5,7 +5,7 @@ import { gql } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/api/ejemplo0/graphql",
+  uri: "http://localhost:3000/api/ej1_mayores18/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -15,10 +15,10 @@ async function ejecuta_peticion() {
     const { data } = await client.query({
       query: gql`
         query {
-                products{
+                mayores{
                   id
-                  name
-                  price
+                  nombre
+                  edad
                 }
       }`,
     });
@@ -35,7 +35,7 @@ async function ejecuta_peticion() {
 
 export default async function programa(req, res) {
   const resultado = await ejecuta_peticion()
-  const cadenaTexto = JSON.stringify(resultado.products)
+  const cadenaTexto = JSON.stringify(resultado.mayores)
   console.log("resultado", resultado)
   res.json(cadenaTexto)
 }

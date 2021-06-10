@@ -38,7 +38,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     mayores: () => {
-      const filtraMayores = alumnos.filter((alumno, index) => {
+      const filtraMayores = alumnos.filter((alumno) => {
         return (alumno.edad>=18 ? alumno : false)
       })
         return filtraMayores
@@ -57,21 +57,9 @@ export const config = {
 };
 
 export default server.createHandler({
-  path: '/api/ejemplo_01/graphql',
+  path: '/api/ej1_mayores18/graphql',
 });
 
 
 
 
-
-/*  PETICION
-
-query {
-  products{
-    id
-    name
-    price
-  }
-}
-
-*/
