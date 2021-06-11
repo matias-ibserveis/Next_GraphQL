@@ -2,32 +2,30 @@
 // Ejemplo tutorial: https://kjmczk.dev/blog/crud-app-with-next-js-faunadb-and-graphql
 // swr oficial: https://swr.vercel.app/es-ES/docs/data-fetching
 
+// Swr + Next (getStaticprops): https://swr.vercel.app/docs/with-nextjs
 
-//import { ApolloClient,  InMemoryCache, gql } from "@apollo/client";
-import {useState} from "react"
+
 import useSWR from 'swr';
 import { GraphQLClient, gql } from 'graphql-request'
 
 const endpoint = 'http://localhost:3000/api/ej1_mayores18/graphql'
 const graphQLClient = new GraphQLClient(endpoint, { headers:{}})
+
 const fetcher = async (query) => await graphQLClient.request(query)
+const query = gql`
+                  {
+                    mayores{
+                      id
+                      nombre
+                      edad
+                    }
+                  }`
+
 
 export default function ListaWebNext() {
 
-  const {data, error} = useSWR(
-      gql`
-              {
-                mayores{
-                  id
-                  nombre
-                  edad
-                }
-              }`,
-    fetcher
-  )   
+  const {data, error} = useSWR(query, fetcher,  {refreshInterval: 1000})   
   console.log(JSON.stringify(data, undefined, 2))
-  //setlistaDatos(data)
-  
 
   function ListaFormato () {
     const lista = data.mayores

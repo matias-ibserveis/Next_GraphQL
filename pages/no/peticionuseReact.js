@@ -34,7 +34,7 @@ export default function ListaWebNext(props) {
   async function ListaFormato () {
     //const datos = await ejecuta_peticion()
     console.log("datos",datos)
-
+    if (!datos) return
     const resultado = datos.map((element) =>
           <div key={element.id} >
             <div>
@@ -44,6 +44,8 @@ export default function ListaWebNext(props) {
           </div>
           )
     return resultado
+    
+
   }
 
 
@@ -51,7 +53,7 @@ export default function ListaWebNext(props) {
   return (
     <div>
       <h2>My first Apollo app 🚀</h2>
-      <ListaFormato />
+      { datos ? <ListaFormato /> : false}
     </div>
   )
 
