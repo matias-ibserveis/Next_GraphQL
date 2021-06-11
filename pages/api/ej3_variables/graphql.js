@@ -16,13 +16,13 @@ const alumnos = [
     id: 2,
     nombre: 'Maria',
     edad: 17,
-    nota: 9
+    nota: 3
   },
   {
     id: 3,
     nombre: 'Eve',
     edad: 45,
-    nota: 4
+    nota: 7
   },
 ];
 

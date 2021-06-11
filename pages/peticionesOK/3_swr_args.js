@@ -33,12 +33,14 @@ const query = gql`
   }
 
 
-
 export default function ListaWebNext(props) {
   const {datosiniciales, primeravez} = props
   const [key, setKey] = useState(false)  // no hay getstaticprops
 
-  const {data, error} = useSWR([query,variables], fetcher)  
+  const {data, error} = 
+    useSWR([query,variables], fetcher, {  
+                                        initialData: key === primeravez ? {datosiniciales} : null
+                                       })  
 
   error ? console.log("error", error): false
   console.log(JSON.stringify(data, undefined, 2))
@@ -72,14 +74,14 @@ return (
 
 }
 
-/*
+
 export async function getStaticProps() {
   try{
-    const data = await graphQLClient.request(query)
-    console.log(JSON.stringify(data, undefined, 2))
+    const data = await request(endpoint, query, variables)
+    console.log(JSON.stringify("getstatic data",data, undefined, 2))
     return {
       props: {
-        datosiniciales: data.mayores,
+        datosiniciales: data.aprobados,
         primeravez: true
       },
     };
@@ -89,7 +91,7 @@ export async function getStaticProps() {
     //return ({props: {error: "error en conexión"}} )
   }
 }
-*/
+
 
 
 
