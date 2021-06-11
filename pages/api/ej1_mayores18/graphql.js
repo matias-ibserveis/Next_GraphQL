@@ -7,7 +7,7 @@ const alumnos = [
   {
     id: 1,
     nombre: 'Joan',
-    edad: 23,
+    edad: 15,
   },
   {
     id: 2,
